@@ -137,6 +137,25 @@ STR R0, R5, #-1
 
 ADD R5, R5, #-3
 
+;UAG
+LEA R2, stop1
+whileloopy 
+LDR R1, R2, #0
+LDR R4, R5, #0
+NOT R4, R4
+ADD R4, R4, #1
+ADD R4, R1, R4
+BRnp trystop2
+
+ADD R5, R5, #1
+ADD R2, R2, #1
+LDR R1, R2, #0
+BRnp whileloopy
+BR end
+
+
+
+end BR reset
 
 mask		.fill x4000
 KBSR		.fill xFE00
